@@ -1,0 +1,6 @@
+old authors TODO: Finishing a camera pan (ahead of time) does not perform final update on scrollbars.
+GENBTC TODO:
+Scrollbars dont seem to do anything on Win32.
+In Viewport.c, the bottom function controls the keyboard events, make it so that you can move around with the keyboard, or fix the scrollbars. 
+
+DiscV (disc view) - just a buncha crop circles lol
