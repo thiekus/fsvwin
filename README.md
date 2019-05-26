@@ -27,10 +27,10 @@ This repo is a fork of [a fork of FSV](https://github.com/mcuelenaere/fsv)
 
 **Building**
 
-*Note: this is steps for building this repo sources from MSVC. If you would like to build using mingw in MSYS2, consider use [mingw fork repo](https://github.com/genbtc/fsv/) and follow [this instructions](https://mrlithium.blogspot.com/2017/07/compiling-fsv-jurassic-park-program-on.html) instead.*
+*Note: this is steps for building this repo sources from MSVC. If you would like to build using mingw in MSYS2, consider use this [mingw fork repo](https://github.com/genbtc/fsv/) and follow [this instructions](https://mrlithium.blogspot.com/2017/07/compiling-fsv-jurassic-park-program-on.html) instead.*
 
 Requirements:
-* Microsoft Visual C++ 2005 (Express edition needs Windows SDK headers and libraries)
+* Microsoft Visual C++ 2005 or later (Express edition needs Windows SDK headers and libraries)
 * GTK+ 2.24 for Windows, you can build for yourself or use this [GTK+ 2.24.10 all-in-one package](http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) (this is the last official all-in-one prebuild for Windows).
 
 Steps:
