@@ -1,0 +1,18 @@
+Current authors and maintainers
+-------------------------------
+ Sam Hocevar <sam@hocevar.net>
+ C.J. Adams-Collier <cjcollier@colliertech.org>
+
+Previous authors and maintainers
+--------------------------------
+ Xavier Ordoquy <xordoquy@wanadoo.fr>
+ Janne Löf <jlof@mail.student.oulu.fi>
+
+Contributors
+------------
+ Karl Nelson <kenelson@ece.ucdavis.edu> (original autoconf, gtkglarea--)
+ Daniel Skarda <0rfelyus@atrey.karlin.mff.cuni.cz> (original autotools)
+ Jussi Löf <jussi.lof@pirko.fi> (LightWave objects)
+ Andrew Marriott <raytrace@lillee.cs.curtin.edu.au> (original win32 port)
+ Chris Abernethy <chris65536@home.com> (gtkglarea_demo.c)
+

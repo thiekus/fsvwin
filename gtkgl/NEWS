@@ -1,0 +1,14 @@
+
+=============
+Version 2.0.1
+=============
+
+General
+	* Code reorganisation and cleanup.
+	* 64-bit and Win32 portability fixes.
+	* Support for newer autotools versions.
+	* Fix Cygwin and MinGW builds.
+
+Examples
+	* New fragment shader and vertex shader example program.
+

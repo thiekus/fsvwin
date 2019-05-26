@@ -1,0 +1,106 @@
+GtkGLArea 2.0.1
+===============
+
+ GtkGLArea is an OpenGL widget for GTK+ GUI toolkit.
+
+ Just as GTK+ is build on top of GDK, GtkGLArea is built on top of gdkgl which
+ is basically wrapper around GLX functions. The widget itself is derived
+ from GtkDrawinigArea widget and adds only few extra functions.
+
+ Lower level gdkgl functions make it easy to render on any widget that has
+ OpenGL capable visual, rendering to off-screen pixmaps is also supported.
+
+ Related project which may iterest those who use GTK-- is GtkGLArea--. It is a
+ C++ wrapper for gtkglarea written by Karl Nelson <kenelson@ece.ucdavis.edu>.
+
+
+Installation
+------------
+
+ You need GTK+ and either OpenGL or Mesa, if you have both you can choose which
+ one to use by giving --with-lib-GL or --with-lib-MesaGL option to configure.
+
+ Run './configure --help' to see all options you may give at configuration stage.
+ Run './configure' and 'make' to build. You may now test programs in examples
+ directory. Run 'make install' to install.
+
+ Include files go to PREFIX/include/gtkgl/
+ Library files go to PREFIX/lib/
+
+
+Win32
+-----
+
+ There is now a working windows port. There are old hand-written
+ makefiles (makefile.mingw) but those are out-of-date. Autoconfigurated
+ build should work OK. If you cannot get it to work, the makefile.mingw files
+ should be pretty straightforward to modify.
+
+ Prebuilt Win32 packages of GLib 2.0 and GTK+ 2.0 can be downloaded
+ from www.gimp.org/win32. Also a prebuilt GtkGLArea package might
+ eventually be available from there.
+
+ OpenlGL headers are also needed, either use those from the
+ PlatformSDK (freely downloadable from Microsoft, even if you have to
+ use a complex installer program, and it's hard to decide which of the
+ zillion optional parts you actually want to get these headers), or
+ grab
+
+   Mingw32_OpenGL.zip
+
+ from ftp://ftp.teleport.com/pub/users/pgarceau/
+
+ or alternatively you may use
+
+  glut-cygwin.zip
+
+ from http://www.cim.pe.u-tokyo.ac.jp/~kawachi/software/cygwin_glut-e.html
+
+ Unzip these packages to some directory.
+
+ The Inner workings of win32 gtkglarea is quite different form glx
+ version, therefore you should only use GtkGLArea widget (gtk_gl_*)
+ functions, no gdk_gl_* functions.
+
+
+ You may also build gtkgl on MinGW. The trick(s) I ended up having to do
+ were many:
+ * run ./autogen.sh from cygwin - for some reason mingw's auto* don't work
+ * copy the gtk dist to /target - for some reason, the .pc files refer to this
+ * be sure to install the w32api mingw package
+ * explicitly set LDFLAGS, PKG_CONFIG_PATH, and explicitly declare
+   where opengl32 is located when running ./configure, thus:
+
+ LDFLAGS=-L/c/GTK/2.8/lib \
+ PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/c/GTK/2.8/lib/pkgconfig/ \
+ ./configure --prefix=/mingw \
+             --with-GL-prefix=/mingw \
+             --with-lib-opengl32
+
+Documentation
+-------------
+
+ Documentation is slightly out of date, sorry.
+
+ docs/gtkglarea.txt	documents GtkGLArea widget (needs updating)
+ docs/gtkgl.txt		documents gtk_gl_* functions (needs updating)
+ docs/HOWTO.txt		good advice
+
+
+Links
+-----
+
+ GtkGLArea home page http://www.student.oulu.fi/~jlof/gtkglarea/
+ Gtk-- wrapper http://www.ece.ucdavis.edu/~kenelson/gtk-glarea/
+
+
+Todo
+----
+
+ - rewrite documentation in texinfo format
+ - weed out bugs from autoconfigure scripts
+ - overlays
+ - add more functionality to windows port
+
+---
+Trademarks are owned by trademark owners.
