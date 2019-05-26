@@ -591,14 +591,9 @@ dirent_first(
     DWORD error;
 
     /* Open directory and retrieve the first entry */
-#ifdef WIN9X_SUPPORT
-	dirp->handle = FindFirstFileW(
-        dirp->patt, &dirp->data);
-#else
     dirp->handle = FindFirstFileExW(
         dirp->patt, FindExInfoStandard, &dirp->data,
         FindExSearchNameMatch, NULL, 0);
-#endif
     if (dirp->handle != INVALID_HANDLE_VALUE) {
 
         /* a directory entry is now waiting in memory */

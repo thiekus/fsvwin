@@ -1,0 +1,13 @@
+Debug/
+Release/
+gtkgl/Debug/
+gtkgl/Release/
+*.obj
+*.ncb
+*.suo
+*.pdb
+*.lib
+*.exe
+*.dll
+*.manifest
+*.vcproj.*

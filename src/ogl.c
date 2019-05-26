@@ -34,10 +34,12 @@
 #endif
 #include <glib.h>
 #include <gdk/gdk.h>
-#include <gdk/gdkkeysyms.h>
+#ifdef GTKGLEXT
 #include <gdk/gdkgltokens.h>
-#include <gtk/gtk.h>
 #include <gtk/gtkgl.h>
+#endif
+#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
 #include <gtkgl/gdkgl.h>
 #include <gtkgl/gtkglarea.h>
 

@@ -17,7 +17,7 @@
 			Name="Release|Win32"
 			OutputDirectory=".\Release"
 			IntermediateDirectory=".\Release"
-			ConfigurationType="2"
+			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
@@ -72,21 +72,10 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="unicows.lib user32.lib gdi32.lib gdk-win32-2.0.lib gdkglext-win32-1.0.lib gobject-2.0.lib gtk-win32-2.0.lib glib-2.0.lib odbc32.lib odbccp32.lib opengl32.lib"
-				OutputFile="Release/libgtkgl2.dll"
-				LinkIncremental="1"
-				SuppressStartupBanner="true"
-				ModuleDefinitionFile=".\gtkgl\gtkgl.def"
-				ProgramDatabaseFile=".\Release/libgtkgl2.pdb"
-				ImportLibrary=".\Release/libgtkgl2.lib"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -100,12 +89,6 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -113,7 +96,7 @@
 			Name="Debug|Win32"
 			OutputDirectory=".\Debug"
 			IntermediateDirectory=".\Debug"
-			ConfigurationType="2"
+			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
@@ -168,22 +151,10 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="unicows.lib user32.lib gdi32.lib gdk-win32-2.0.lib gdkglext-win32-1.0.lib gobject-2.0.lib gtk-win32-2.0.lib glib-2.0.lib odbc32.lib odbccp32.lib opengl32.lib"
-				OutputFile="Debug/libgtkgl2.dll"
-				LinkIncremental="2"
-				SuppressStartupBanner="true"
-				ModuleDefinitionFile=".\gtkgl\gtkgl.def"
-				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/libgtkgl2.pdb"
-				ImportLibrary=".\Debug/libgtkgl2.lib"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -195,12 +166,6 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

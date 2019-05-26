@@ -334,14 +334,16 @@ gui_clist_moveto_row( GtkWidget *clist_w, int row, double moveto_time )
 
 /* Internal callback for the color picker widget */
 static void
-color_picker_cb( GtkWidget *colorpicker_w, unsigned int r, unsigned int g, unsigned int b, unsigned int unused, void *data )
+color_picker_cb( GtkWidget *colorpicker_w, void *data )
 {
 	void (*user_callback)( RGBcolor *, void * );
 	RGBcolor color;
+	GdkColor pick_color;
 
-	color.r = (float)r / 65535.0;
-	color.g = (float)g / 65535.0;
-	color.b = (float)b / 65535.0;
+	gtk_color_button_get_color(colorpicker_w, &pick_color);
+	color.r = (float)pick_color.red / 65535.0;
+	color.g = (float)pick_color.green / 65535.0;
+	color.b = (float)pick_color.blue / 65535.0;
 
 	/* Call user callback */
 	user_callback = (void (*)( RGBcolor *, void * ))gtk_object_get_data( GTK_OBJECT(colorpicker_w), "user_callback" );
@@ -375,9 +377,9 @@ gui_colorpicker_set_color( GtkWidget *colorbutton_w, RGBcolor *color )
 {
 #ifdef _MSC_VER
 	GdkColor gdk_color;
-	gdk_color.red   = color->r * sizeof(guint16);
-	gdk_color.green = color->g * sizeof(guint16);
-	gdk_color.blue  = color->b * sizeof(guint16);
+	gdk_color.red   = (guint16)(color->r * 65535.0);
+	gdk_color.green = (guint16)(color->g * 65535.0);
+	gdk_color.blue  = (guint16)(color->b * 65535.0);
 #else
 	GdkColor gdk_color = {
 		.red	= color->r * sizeof(guint16),

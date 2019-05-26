@@ -41,7 +41,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=".;./lib;./dbg"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN9X_SUPPORT"
+				PreprocessorDefinitions="WIN32;_DEBUG;DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN9X_SUPPORT"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -61,9 +61,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="unicows.lib shell32.lib opengl32.lib glu32.lib glib-2.0.lib gobject-2.0.lib gtk-win32-2.0.lib gdk-win32-2.0.lib gdkglext-win32-1.0.lib libgtkgl2.lib"
+				AdditionalDependencies="user32.lib gdi32.lib shell32.lib opengl32.lib glu32.lib glib-2.0.lib gobject-2.0.lib gtk-win32-2.0.lib gdk-win32-2.0.lib gtkgl.lib"
 				OutputFile="$(OutDir)\fsv.exe"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="$(SolutionDir)\gtkgl\$(ConfigurationName)"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -137,9 +138,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="unicows.lib shell32.lib opengl32.lib glu32.lib glib-2.0.lib gobject-2.0.lib gtk-win32-2.0.lib gdk-win32-2.0.lib gdkglext-win32-1.0.lib libgtkgl2.lib"
+				AdditionalDependencies="user32.lib gdi32.lib shell32.lib opengl32.lib glu32.lib glib-2.0.lib gobject-2.0.lib gtk-win32-2.0.lib gdk-win32-2.0.lib gtkgl.lib"
 				OutputFile="$(OutDir)\fsv.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="$(SolutionDir)\gtkgl\$(ConfigurationName)"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
@@ -384,8 +386,16 @@
 				RelativePath=".\lib\nvstore.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="debug"
+			>
 			<File
-				RelativePath=".\lib\scandir.c"
+				RelativePath=".\dbg\debug.c"
+				>
+			</File>
+			<File
+				RelativePath=".\dbg\debug.h"
 				>
 			</File>
 		</Filter>
