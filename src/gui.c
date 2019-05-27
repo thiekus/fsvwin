@@ -1297,6 +1297,7 @@ gui_filesel_window( const char *title, const char *init_filename, void (*ok_call
 	filesel_window_w = gtk_file_selection_new( title );
 	//set bottom PATH textbox to blank. (is not updating, so remove it.)
 	gtk_file_selection_set_filename( GTK_FILE_SELECTION(filesel_window_w), "" );
+	gtk_widget_hide( GTK_FILE_SELECTION(filesel_window_w)->selection_entry );
 	gtk_window_set_position( GTK_WINDOW(filesel_window_w), GTK_WIN_POS_CENTER );
 	gtk_object_set_data( GTK_OBJECT(filesel_window_w), "user_callback", (void *)ok_callback );
 	gtk_object_set_data( GTK_OBJECT(filesel_window_w), "user_callback_data", ok_callback_data );

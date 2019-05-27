@@ -254,6 +254,7 @@ window_init( FsvMode fsv_mode )
 	camera_pass_scrollbar_widgets( x_scrollbar_w, y_scrollbar_w );
 
 	/* Showtime! */
+	gtk_window_set_position( GTK_WINDOW(main_window_w), GTK_WIN_POS_CENTER );
 	gtk_widget_show( main_window_w );
 }
 
