@@ -1368,7 +1368,7 @@ dialog_node_properties( GNode *node )
                 break;
 
 
-#ifdef HAVE_FILE_COMMAND
+#ifdef HAVE_FILE_COMMAND || WIN32
 		case NODE_REGFILE:
 		/**** "File type" page ****/
 

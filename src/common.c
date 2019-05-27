@@ -22,6 +22,9 @@
 
 
 #include "window.h"
+#ifdef WIN32
+#include "winutils.h"
+#endif
 
 #include <unistd.h>
 #include <sys/time.h>
@@ -471,7 +474,18 @@ node_named( const char *absname )
 	return node;
 }
 
-
+#ifdef WIN32
+static char *
+get_file_type_desc( const char *filename )
+{
+	static char description[MAX_PATH];
+	int result = win_get_file_type_name( filename, description );
+	if (!result) {
+		sprintf(description, "Unknown format");
+	}
+	return description;
+}
+#else
 #ifdef HAVE_FILE_COMMAND
 /* Runs the 'file' command on the given file, and returns the output
  * (a verbose description of the file type) */
@@ -493,11 +507,7 @@ get_file_type_desc( const char *filename )
 	sprintf( cmd_line, FILE_COMMAND, filename );
 
 	/* Open command stream */
-#ifdef _MSC_VER
-	cmd = _popen( cmd_line, "r" );
-#else
 	cmd = popen( cmd_line, "r" );
-#endif
 	xfree( cmd_line );
 	if (cmd == NULL) {
 		strcpy( cmd_output, _("Could not execute 'file' command") );
@@ -522,11 +532,7 @@ get_file_type_desc( const char *filename )
 		/* Keep the GUI responsive */
 		gui_update( );
 	}
-#ifdef _MSC_VER
-	_pclose( cmd );
-#else
 	pclose( cmd );
-#endif
 	cmd_output[i] = '\0';
 
 	len = strlen( filename );
@@ -538,6 +544,7 @@ get_file_type_desc( const char *filename )
 	return cmd_output;
 }
 #endif /* HAVE_FILE_COMMAND */
+#endif /* WIN32 */
 
 
 /* Returns the target of a symbolic link */
@@ -744,14 +751,22 @@ get_node_info( GNode *node )
 		cstr = NODE_DESC(node)->name;
 	else
 		cstr = _("/. (root)");
+#ifdef WIN32
+	ninfo.name = win_fix_path_slashes( xstrredup( ninfo.name, cstr ) );
+#else
 	ninfo.name = xstrredup( ninfo.name, cstr );
+#endif
 	/* Prefix */
 	str = g_dirname( absname );
 	if (!strcmp( str, "/" )) {
 		g_free( str );
 		str = g_strdup( _("/. (root)") );
 	}
+#ifdef WIN32
+	ninfo.prefix = win_fix_path_slashes( xstrredup( ninfo.prefix, str ) );
+#else
 	ninfo.prefix = xstrredup( ninfo.prefix, str );
+#endif
 	g_free( str );
 
 	/* Size */
