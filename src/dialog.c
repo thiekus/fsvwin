@@ -1121,7 +1121,7 @@ dialog_help( void )
 	GtkWidget *frame_w;
 	GtkWidget *hbox_w;
 #ifdef _WIN32
-	char location[] = ".\\" DOCDIR "\\fsv.html";
+	char location[] = "..\\" DOCDIR "\\fsv.html";
 #else
 	char location[] = "file://localhost" DOCDIR "/fsv.html";
 #endif

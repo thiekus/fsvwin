@@ -1,7 +1,10 @@
+.vscode
 Debug/
 Release/
-gtkgl/Debug/
-gtkgl/Release/
+*_Debug/
+*_Release/
+gtkgl/*_Debug/
+gtkgl/*_Release/
 *.obj
 *.ncb
 *.suo
