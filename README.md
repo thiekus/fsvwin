@@ -12,7 +12,7 @@ If you lazy, just download [precompiled program here](https://github.com/thiekus
 >Note: You will be need OpenGL driver update installed on your OS at least version 1.1, or it will not work (or just crash).
 >Also, you need more adequate RAM, Processor and good graphic card if you want to index such as huge directories and files list.
 
-[fsv.png](https://postimg.cc/zyqrdg9K)
+[![fsv.png](https://i.postimg.cc/nhDhhK2R/fsv.png)](https://postimg.cc/zyqrdg9K)
 
 **About FSV**
 
