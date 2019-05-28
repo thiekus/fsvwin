@@ -322,16 +322,25 @@ window_birdseye_view_off( void )
 
 
 /* Displays a message in one of the statusbars */
+/* Autofix slashes for Windows */
 void
 window_statusbar( int sb_id, const char *message )
 {
 	switch (sb_id) {
 		case SB_LEFT:
+#ifdef WIN32
+		gui_statusbar_message( left_statusbar_w, win_fix_path_slashes( message ) );
+#else
 		gui_statusbar_message( left_statusbar_w, message );
+#endif
 		break;
 
 		case SB_RIGHT:
+#ifdef WIN32
+		gui_statusbar_message( right_statusbar_w, win_fix_path_slashes( message ) );
+#else
 		gui_statusbar_message( right_statusbar_w, message );
+#endif
 		break;
 
 		SWITCH_FAIL

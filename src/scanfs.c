@@ -23,6 +23,9 @@
 
 #include "window.h"
 #include "scanfs.h"
+#ifdef WIN32
+#include "winutils.h"
+#endif
 
 #include <dirent.h>
 #include <unistd.h>
