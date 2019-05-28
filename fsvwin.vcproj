@@ -260,7 +260,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\winutils.c"
+				RelativePath=".\src\winutils.c"
 				>
 			</File>
 		</Filter>
@@ -354,7 +354,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\winutils.h"
+				RelativePath=".\src\winutils.h"
 				>
 			</File>
 		</Filter>
